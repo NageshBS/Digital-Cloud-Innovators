@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Automation Results</title>
+</head>
+<body style="display: flex; justify-content: center; align-items: center; flex-direction: column; background-image: url('https://www.jssl.in/uploads/project/gallery/big/pic-sattva-knowledge-park-145.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; height: 100vh; margin: 0;">
+  <img style="margin-top: 4px; border-radius: 8px;" src="https://uploads.onecompiler.io/43rmq3qf4/43rmp4e6p/lloyads.png" alt="image" "filter: blur(8px)"/>
+ <h1 style= "color:white;"><b>LLOYDS TECHNOLOGY CENTER</b></h1>
+ <h3 style= "color:white;" style="margin-top: 0"> Hyderabad, 500081</h3>
+   <h1 style= "color:white;">Automation Results</h1>
+
+    <h2>Emails Successfully Sent ({{ sent|length }})</h2>
+    <ul>
+        {% for email in sent %}
+            <li>{{ email }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Failed Emails ({{ failed|length }})</h2>
+    {% if failed %}
+    <ul style="color: red;">
+        {% for email, error in failed %}
+            <li>{{ email }} — Error: {{ error }}</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No failures.</p>
+    {% endif %}
+
+	<h5 style= "color:white;">
+    <a href="{{ url_for('index') }}">Back to Upload</a></h5>
+</body>
+</html>
